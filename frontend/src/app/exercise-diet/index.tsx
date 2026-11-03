@@ -107,7 +107,9 @@ export default function ExerciseDietScreen() {
         {/* Meal Plan shortcut */}
         <Pressable
           onPress={() =>
-            router.push("/(tabs)/exercise-diet/meal-plan")
+            router.push({
+              pathname: '/exercise-diet/mealplan'
+            })
           }
           className="mt-2 flex-row items-center justify-between rounded-2xl bg-[#07896F] p-4"
         >
