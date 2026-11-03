@@ -1,10 +1,11 @@
-import { View, Text, StatusBar, ScrollView,  } from 'react-native'
+import { View, Text, StatusBar, ScrollView, useWindowDimensions,  } from 'react-native'
 import React from 'react'
 import { Ionicons } from "@expo/vector-icons"
 import { SafeAreaView } from "react-native-safe-area-context"
 import AppButton from '../../components/ui/AppButton'
 import { router } from 'expo-router'
 export default function welcome() {
+ const {height, width} = useWindowDimensions()
   return (
     <SafeAreaView className='flex-1 bg-[#E8F8F1]'>
         <StatusBar barStyle="dark-content" 
@@ -18,7 +19,7 @@ export default function welcome() {
   showsVerticalScrollIndicator={false}
 >
   {/* Main white card */}
-  <View className="w-full items-center rounded-[28px] bg-white px-5 pb-6 pt-8 shadow-sm">
+  <View style={{height: height*0.8}} className="w-full items-center rounded-[28px] bg-white px-5 pb-6 pt-8 shadow-sm">
 
     {/* Logo */}
     <View className="mb-3 h-16 w-16 items-center justify-center rounded-full bg-[#DDF5EC]">

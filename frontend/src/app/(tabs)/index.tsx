@@ -51,14 +51,14 @@ export default function HomeScreen() {
             title="AI Symptom Checker"
             subtitle="Check your symptoms"
             icon="medkit-outline"
-            onPress={() => router.push("/")}
+            onPress={() => router.push("/(symptom-checker)")}
           />
 
           <FeatureCard
             title="Exercise & Diet"
             subtitle="Healthy lifestyle"
             icon="fitness-outline"
-            onPress={() => router.push("/")}
+            onPress={() => router.push("/exercise-diet")}
           />
         </View>
 
