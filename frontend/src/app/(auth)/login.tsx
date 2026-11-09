@@ -122,7 +122,7 @@ export default function Login() {
               Don't have an account?{" "}
             </Text>
             <Text
-              onPress={() => router.push("/(auth)/login")}
+              onPress={() => router.push({pathname:'/(auth)/Signup'})}
               className="text-xs font-bold text-[#07896F]"
             >
               signup

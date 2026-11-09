@@ -67,14 +67,18 @@ export default function HomeScreen() {
             title="Medicine Reminders"
             subtitle="Stay on track"
             icon="calendar-outline"
-            onPress={() => router.push("/")}
+            onPress={() => router.push({
+              pathname: "/(tabs)/Reminders"
+            })}
           />
 
           <FeatureCard
             title="Health AI Chat"
             subtitle="Ask anything"
             icon="chatbubble-ellipses-outline"
-            onPress={() => router.push("/")}
+            onPress={() => router.push({
+              pathname: '/Chat/healthChat'
+            })}
           />
         </View>
 
