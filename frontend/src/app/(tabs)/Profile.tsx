@@ -9,33 +9,32 @@ const menuItems = [
   {
     title: "Health History",
     icon: "fitness-outline" as const,
-    route: "health-history",
+    route: "/Profile/health-history",
   },
   {
     title: "Preferences",
     icon: "options-outline" as const,
-    route: "preferences",
+    route: "/Profile/preferences",
   },
   {
     title: "Notifications",
     icon: "notifications-outline" as const,
-    route: "notifications",
+    route: "/Profile/notifications",
   },
   {
     title: "Privacy & Security",
     icon: "shield-checkmark-outline" as const,
-    route: "privacy-security",
+    route: "/Profile/privacy-security",
   },
   {
     title: "Settings",
     icon: "settings-outline" as const,
-    route: "settings",
+    route: "/Profile/settings",
   },
-];
-
+] as const;
 export default function Profile() {
     const user = {
-    name: "lov Sharma",
+    name: "lov karki",
     email: "lov@example.com",
   };
   return (
@@ -64,16 +63,14 @@ export default function Profile() {
 
          {/* menus  */}
          <View className='px-4 rounded-2xl bg-white'>
-          {
-            menuItems.map((item)=>(
-           <Profilemenuitems
-           key={item.route}
-           title={item.title}
-           icons={item.icon}
-           onPress={()=>router.push({pathname:`/Profile/${item.route}`})}
-           />
-            ))
-          }
+          {menuItems.map((item) => (
+  <Profilemenuitems
+    key={item.route}
+    title={item.title}
+    icons={item.icon}
+    onPress={() => router.push(item.route)}
+  />
+))}
 
          </View>
       </ScrollView>

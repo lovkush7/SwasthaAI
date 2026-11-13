@@ -72,9 +72,15 @@ const sections: Record<
 };
 
 export default function ProfileSettingsScreen() {
-  const { section } = useLocalSearchParams<{
-    section: string;
-  }>();
+const params = useLocalSearchParams();
+
+const Profile = params.Profile;
+
+console.log("ALL PARAMS:", params);
+console.log("PROFILE PARAM:", Profile);
+console.log("MATCHING PAGE:", sections[String(Profile)]);
+
+const page = sections[String(Profile ?? "")];
 
   const [enabled, setEnabled] = useState<Record<string, boolean>>({
     "Medicine Reminders": true,
@@ -85,18 +91,39 @@ export default function ProfileSettingsScreen() {
     "Biometric Authentication": false,
   });
 
-  const page = sections[section ?? ""];
 
-  if (!page) {
-    return (
-      <SafeAreaView className="flex-1 items-center justify-center bg-[#E8F8F1]">
-        <Text className="text-[#124A43]">Page not found</Text>
-        <Pressable onPress={() => router.back()}>
-          <Text className="mt-3 text-[#07896F]">Go Back</Text>
-        </Pressable>
-      </SafeAreaView>
-    );
-  }
+ if (!page) {
+  return (
+    <SafeAreaView className="flex-1 items-center justify-center bg-[#E8F8F1] p-5">
+      <Text className="text-lg font-bold text-red-500">
+        Page Not Found
+      </Text>
+
+      <Text className="mt-3 text-[#124A43]">
+        Received profile: {String(Profile)}
+      </Text>
+
+      <Text className="mt-2 text-[#124A43]">
+        Expected: health-history / preferences / notifications / settings
+      </Text>
+
+      <Pressable onPress={() => router.back()}>
+        <Text className="mt-4 text-[#07896F]">Go Back</Text>
+      </Pressable>
+    </SafeAreaView>
+  );
+}
+
+  // if (!page) {
+  //   return (
+  //     <SafeAreaView className="flex-1 items-center justify-center bg-[#E8F8F1]">
+  //       <Text className="text-[#124A43]">Page not found</Text>
+  //       <Pressable onPress={() => router.back()}>
+  //         <Text className="mt-3 text-[#07896F]">Go Back</Text>
+  //       </Pressable>
+  //     </SafeAreaView>
+  //   );
+  // }
 
   return (
     <SafeAreaView className="flex-1 bg-[#E8F8F1]">
